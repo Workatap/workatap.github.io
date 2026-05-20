@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workatap – Play. Earn. Cash Out.</title>
+<meta name="description" content="Workatap lets you earn real money by playing games, completing tasks, and referring friends. Cash out instantly via MTN MoMo or Airtel Money in Uganda.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- AdSense code goes here -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2570012305574931" crossorigin="anonymous"></script>
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0f;
+    --bg2: #111118;
+    --bg3: #1a1a25;
+    --gold: #f5c842;
+    --gold2: #e6a800;
+    --green: #00e676;
+    --purple: #7c4dff;
+    --text: #f0f0f8;
+    --muted: #8888aa;
+    --border: rgba(255,255,255,0.07);
+    --font-head: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 1.5rem;
+    background: rgba(10,10,15,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: var(--font-head);
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--gold);
+    letter-spacing: -0.5px;
+  }
+  .nav-logo span { color: var(--text); }
+  .nav-cta {
+    background: var(--gold);
+    color: #0a0a0f;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.85rem;
+    padding: 0.5rem 1.1rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .nav-cta:hover { background: var(--gold2); transform: scale(1.04); }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 7rem 1.5rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(245,200,66,0.13) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 40% at 80% 80%, rgba(124,77,255,0.1) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 40% at 10% 70%, rgba(0,230,118,0.07) 0%, transparent 60%);
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(245,200,66,0.1);
+    border: 1px solid rgba(245,200,66,0.25);
+    color: var(--gold);
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 0.35rem 0.9rem;
+    border-radius: 50px;
+    margin-bottom: 1.5rem;
+    position: relative; z-index: 1;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-badge::before { content: '●'; font-size: 0.5rem; animation: pulse 1.5s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+  .hero h1 {
+    font-family: var(--font-head);
+    font-size: clamp(2.4rem, 9vw, 3.8rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+    position: relative; z-index: 1;
+    animation: fadeUp 0.6s 0.1s ease both;
+    max-width: 700px;
+  }
+  .hero h1 .highlight {
+    color: var(--gold);
+    position: relative;
+  }
+  .hero h1 .highlight::after {
+    content: '';
+    position: absolute; bottom: -4px; left: 0; right: 0; height: 3px;
+    background: var(--gold);
+    border-radius: 2px;
+    opacity: 0.5;
+  }
+
+  .hero-sub {
+    margin-top: 1.25rem;
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 480px;
+    position: relative; z-index: 1;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+
+  .hero-actions {
+    margin-top: 2rem;
+    display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+    position: relative; z-index: 1;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+  .btn-primary {
+    background: var(--gold);
+    color: #0a0a0f;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 0.85rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.2s;
+    box-shadow: 0 0 30px rgba(245,200,66,0.25);
+  }
+  .btn-primary:hover { background: var(--gold2); transform: translateY(-2px); box-shadow: 0 0 40px rgba(245,200,66,0.4); }
+  .btn-secondary {
+    background: transparent;
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    padding: 0.85rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+  }
+  .btn-secondary:hover { border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.04); }
+
+  .hero-stats {
+    margin-top: 3rem;
+    display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center;
+    position: relative; z-index: 1;
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+  .stat { text-align: center; }
+  .stat-num {
+    font-family: var(--font-head);
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--gold);
+  }
+  .stat-label { font-size: 0.78rem; color: var(--muted); margin-top: 2px; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── AD SLOT ─── */
+  .ad-slot {
+    width: 100%; max-width: 728px; margin: 0 auto;
+    padding: 1rem 1.5rem;
+    text-align: center;
+  }
+  .ad-label { font-size: 0.7rem; color: var(--muted); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 1px; }
+
+  /* ─── HOW IT WORKS ─── */
+  .section { padding: 5rem 1.5rem; max-width: 900px; margin: 0 auto; }
+  .section-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--green);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.75rem;
+  }
+  .section h2 {
+    font-family: var(--font-head);
+    font-size: clamp(1.8rem, 6vw, 2.6rem);
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+  .section-sub { color: var(--muted); font-size: 1rem; max-width: 500px; margin-bottom: 3rem; }
+
+  .steps { display: flex; flex-direction: column; gap: 1rem; }
+  .step {
+    display: flex; align-items: flex-start; gap: 1.25rem;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .step:hover { border-color: rgba(245,200,66,0.2); transform: translateX(4px); }
+  .step-num {
+    min-width: 44px; height: 44px;
+    border-radius: 12px;
+    background: rgba(245,200,66,0.1);
+    border: 1px solid rgba(245,200,66,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-head);
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--gold);
+  }
+  .step-content h3 { font-size: 1rem; font-weight: 500; margin-bottom: 4px; }
+  .step-content p { font-size: 0.9rem; color: var(--muted); }
+
+  /* ─── EARN WAYS ─── */
+  .earn-section { background: var(--bg2); padding: 5rem 1.5rem; }
+  .earn-inner { max-width: 900px; margin: 0 auto; }
+  .earn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2.5rem; }
+  .earn-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: all 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .earn-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: var(--card-accent, var(--gold));
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+  .earn-card:hover::before { opacity: 1; }
+  .earn-card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.12); }
+  .earn-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+  .earn-card h3 { font-size: 1rem; font-weight: 500; margin-bottom: 6px; }
+  .earn-card p { font-size: 0.85rem; color: var(--muted); }
+
+  /* ─── CASHOUT ─── */
+  .cashout-section { padding: 5rem 1.5rem; max-width: 900px; margin: 0 auto; }
+  .cashout-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2.5rem; }
+  .cashout-card {
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .cashout-card.mtn { background: linear-gradient(135deg, #1a1500, #2a2000); --accent: #ffcc00; }
+  .cashout-card.airtel { background: linear-gradient(135deg, #1a0000, #2a0a00); --accent: #ff3d00; }
+  .cashout-logo {
+    font-family: var(--font-head);
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+  .cashout-card p { font-size: 0.85rem; color: var(--muted); }
+  .cashout-tag {
+    display: inline-block;
+    margin-top: 0.75rem;
+    background: rgba(255,255,255,0.07);
+    padding: 3px 12px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    color: var(--accent);
+  }
+
+  /* ─── FAQ ─── */
+  .faq-section { background: var(--bg2); padding: 5rem 1.5rem; }
+  .faq-inner { max-width: 700px; margin: 0 auto; }
+  .faq-list { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1px; }
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    padding: 1.25rem 0;
+  }
+  .faq-q {
+    font-weight: 500;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 1rem;
+  }
+  .faq-q::after { content: '+'; font-size: 1.2rem; color: var(--gold); min-width: 16px; text-align: right; }
+  .faq-a { font-size: 0.88rem; color: var(--muted); margin-top: 0.75rem; line-height: 1.7; display: none; }
+  .faq-item.open .faq-q::after { content: '−'; }
+  .faq-item.open .faq-a { display: block; }
+
+  /* ─── CTA BANNER ─── */
+  .cta-banner {
+    margin: 0 1.5rem 5rem;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #1c1400 0%, #0f0a1f 100%);
+    border: 1px solid rgba(245,200,66,0.15);
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    max-width: 860px;
+    margin-left: auto; margin-right: auto;
+  }
+  .cta-banner::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(245,200,66,0.08) 0%, transparent 70%);
+  }
+  .cta-banner h2 {
+    font-family: var(--font-head);
+    font-size: clamp(1.6rem, 5vw, 2.2rem);
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    position: relative; z-index: 1;
+    margin-bottom: 0.75rem;
+  }
+  .cta-banner p { color: var(--muted); font-size: 0.95rem; position: relative; z-index: 1; margin-bottom: 1.75rem; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.82rem;
+  }
+  footer a { color: var(--gold); text-decoration: none; }
+
+  @media (max-width: 480px) {
+    .earn-grid, .cashout-cards { grid-template-columns: 1fr; }
+    .hero-stats { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Worka<span>tap</span></div>
+  <div style="display:flex;align-items:center;gap:1.2rem">
+    <a href="#blog" style="color:var(--muted);text-decoration:none;font-size:0.85rem" class="nav-link">Blog</a>
+    <a href="#about" style="color:var(--muted);text-decoration:none;font-size:0.85rem" class="nav-link">About</a>
+    <a href="./app.html" class="nav-cta">Start Earning</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-badge">🇺🇬 Available in Uganda</div>
+  <h1>Play Games.<br><span class="highlight">Earn Real Money.</span><br>Cash Out Instantly.</h1>
+  <p class="hero-sub">Workatap pays you to play games, complete tasks, and invite friends — withdraw straight to MTN MoMo or Airtel Money.</p>
+  <div class="hero-actions">
+    <a href="./app.html" class="btn-primary">Get Started Free</a>
+    <a href="#how" class="btn-secondary" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'}); return false;">How it works</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">3+</div><div class="stat-label">Ways to Earn</div></div>
+    <div class="stat"><div class="stat-num">Free</div><div class="stat-label">To Join</div></div>
+    <div class="stat"><div class="stat-num">MoMo</div><div class="stat-label">Instant Cashout</div></div>
+  </div>
+</section>
+
+<!-- AD SLOT 1 -->
+<div class="ad-slot">
+  <div class="ad-label">Advertisement</div>
+  <ins class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-2570012305574931"
+    data-ad-slot="auto"
+    data-ad-format="auto"
+    data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="section" id="how">
+  <div class="section-tag">Simple Process</div>
+  <h2>Start earning in 3 steps</h2>
+  <p class="section-sub">No experience needed. If you have a phone and a MoMo account, you're ready.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h3>Create your free account</h3>
+        <p>Register with your phone number and set a 4-digit PIN. Takes less than 60 seconds.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h3>Play, complete tasks & refer friends</h3>
+        <p>Earn points every time you play games, finish tasks, or bring someone new to Workatap.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h3>Cash out to your mobile money</h3>
+        <p>Withdraw your earnings directly to MTN MoMo or Airtel Money — fast and secure.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EARN WAYS -->
+<section class="earn-section">
+  <div class="earn-inner">
+    <div class="section-tag">Earning Methods</div>
+    <h2>Multiple ways to earn</h2>
+    <p class="section-sub">Pick what suits you — or do all three for maximum earnings.</p>
+    <div class="earn-grid">
+      <div class="earn-card" style="--card-accent: var(--gold);">
+        <div class="earn-icon">🎮</div>
+        <h3>Play Games</h3>
+        <p>Earn points just by playing fun games on the platform. The more you play, the more you earn.</p>
+      </div>
+      <div class="earn-card" style="--card-accent: var(--green);">
+        <div class="earn-icon">✅</div>
+        <h3>Complete Tasks</h3>
+        <p>Finish simple tasks and surveys to earn extra points on top of your gaming earnings.</p>
+      </div>
+      <div class="earn-card" style="--card-accent: var(--purple);">
+        <div class="earn-icon">👥</div>
+        <h3>Refer Friends</h3>
+        <p>Share your referral link and earn a bonus every time a friend joins and starts earning.</p>
+      </div>
+      <div class="earn-card" style="--card-accent: #00bcd4;">
+        <div class="earn-icon">💸</div>
+        <h3>Instant Cashout</h3>
+        <p>No waiting weeks. Cash out your balance straight to your mobile money wallet anytime.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AD SLOT 2 -->
+<div class="ad-slot" style="padding: 2.5rem 1.5rem;">
+  <div class="ad-label">Advertisement</div>
+  <ins class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-2570012305574931"
+    data-ad-slot="auto"
+    data-ad-format="auto"
+    data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<!-- CASHOUT SECTION -->
+<section class="cashout-section">
+  <div class="section-tag">Withdrawals</div>
+  <h2>Cash out your way</h2>
+  <p class="section-sub">We support Uganda's two biggest mobile money networks — no bank account needed.</p>
+  <div class="cashout-cards">
+    <div class="cashout-card mtn">
+      <div class="cashout-logo">MTN MoMo</div>
+      <p>Withdraw directly to your MTN Mobile Money wallet.</p>
+      <div class="cashout-tag">Fast & Instant</div>
+    </div>
+    <div class="cashout-card airtel">
+      <div class="cashout-logo">Airtel Money</div>
+      <p>Withdraw directly to your Airtel Money wallet.</p>
+      <div class="cashout-tag">Fast & Instant</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="faq-inner">
+    <div class="section-tag">FAQ</div>
+    <h2>Common questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Is Workatap free to join?</div>
+        <div class="faq-a">Yes, completely free. Just register with your phone number and start earning immediately — no deposit or payment required.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How much can I earn?</div>
+        <div class="faq-a">Your earnings depend on how active you are. Play more games, complete more tasks, and refer more friends to increase your income.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How long does cashout take?</div>
+        <div class="faq-a">Withdrawals to MTN MoMo and Airtel Money are processed quickly. Most payments arrive within minutes.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do I need a smartphone?</div>
+        <div class="faq-a">You need a phone that can access the internet. Any smartphone with a browser will work fine.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Is Workatap available outside Uganda?</div>
+        <div class="faq-a">Currently Workatap is focused on Uganda. We support MTN MoMo and Airtel Money which are Uganda's leading mobile money services.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AD SLOT 3 -->
+<div class="ad-slot" style="padding: 1rem 1.5rem 2.5rem;">
+  <div class="ad-label">Advertisement</div>
+  <ins class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-2570012305574931"
+    data-ad-slot="auto"
+    data-ad-format="auto"
+    data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<!-- BLOG SECTION -->
+<section id="blog" style="padding:5rem 1.5rem; background: var(--bg2);">
+  <div style="max-width:900px;margin:0 auto">
+    <div style="font-size:0.75rem;font-weight:500;color:var(--gold);text-transform:uppercase;letter-spacing:2px;margin-bottom:0.75rem">Tips & Guides</div>
+    <h2 style="font-family:var(--font-head);font-size:clamp(1.8rem,6vw,2.4rem);font-weight:800;letter-spacing:-1px;margin-bottom:0.5rem">Learn & Earn More</h2>
+    <p style="color:var(--muted);margin-bottom:3rem">Practical tips to help you earn more money on Workatap and manage your mobile money wisely.</p>
+
+    <div style="display:grid;grid-template-columns:1fr;gap:1.5rem">
+
+      <!-- Article 1 -->
+      <article style="background:var(--bg3);border:1px solid var(--border);border-radius:16px;padding:1.5rem" id="article-earn-money-uganda">
+        <div style="font-size:0.7rem;color:var(--gold);font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:0.75rem">EARNING GUIDE</div>
+        <h3 style="font-family:var(--font-head);font-size:1.25rem;font-weight:800;margin-bottom:0.75rem;line-height:1.3">How to Earn Real Money Online in Uganda in 2026</h3>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.8;margin-bottom:1rem">Many Ugandans are looking for ways to earn extra income using their smartphones. With platforms like Workatap, it is now possible to earn real Uganda Shillings by playing games, completing simple tasks, and referring friends — all from your phone.</p>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.8;margin-bottom:1rem">The key to earning consistently on Workatap is daily activity. Log in every day to claim your streak bonus, watch the available ads, answer the daily quiz, and play games. Users who are active every single day earn up to 95 points daily, which adds up quickly over weeks.</p>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.8;margin-bottom:1rem">Referrals are also one of the fastest ways to boost your earnings. Every friend who joins using your referral code earns you bonus points instantly. Share your code on WhatsApp Status, Facebook, and with friends and family to grow your referral count.</p>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.8">Once you reach 5,000 points, you can cash out UGX 10,000 directly to your MTN MoMo or Airtel Money account. Pro members unlock even bigger withdrawals of up to UGX 100,000.</p>
+        <div style="margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:0.75rem;color:var(--muted)">May 2026 · 3 min read</span>
+          <a href="./app.html" style="font-size:0.8rem;color:var(--gold);font-weight:600;text-decoration:none">Start Earning →</a>
+        </div>
+      </article>
+
+      <!-- Article 2 -->
+      <article style="background:var(--bg3);border:1px solid var(--border);border-radius:16px;padding:1.5rem" id="article-momo-tips">
+        <div style="font-size:0.7rem;color:var(--green);font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:0.75rem">MOBILE MONEY</div>
+        <h3 style="font-family:var(--font-head);font-size:1.25rem;font-weight:800;margin-bottom:0.75rem;line-height:1.3">MTN MoMo vs Airtel Money in Uganda: Which is Better for Receiving Payments?</h3>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.8;margin-bottom:1rem">Both MTN Mobile Money and Airtel Money are widely used across Uganda for sending and receiving money. Workatap supports both networks for cashouts, but there are some differences worth knowing.</p>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.8;margin-bottom:1rem">MTN MoMo currently has the largest network coverage in Uganda with over 20 million registered users. It is available in almost every corner of the country including rural areas. MTN MoMo also has lower transaction fees for smaller amounts, making it ideal for Workatap cashouts of UGX 10,000 to UGX 25,000.</p>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.8;margin-bottom:1rem">Airtel Money is equally reliable and has been growing rapidly in Uganda. It often runs promotions with zero transaction fees on certain days, which can save you money when withdrawing your Workatap earnings.</p>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.8">Our recommendation: register on both networks so you always have a backup option when withdrawing your earnings from Workatap.</p>
+        <div style="margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:0.75rem;color:var(--muted)">May 2026 · 4 min read</span>
+          <a href="./app.html" style="font-size:0.8rem;color:var(--gold);font-weight:600;text-decoration:none">Cash Out Now →</a>
+        </div>
+      </article>
+
+      <!-- Article 3 -->
+      <article style="background:var(--bg3);border:1px solid var(--border);border-radius:16px;padding:1.5rem" id="article-save-money">
+        <div style="font-size:0.7rem;color:var(--purple);font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:0.75rem">FINANCIAL TIPS</div>
+        <h3 style="font-family:var(--font-head);font-size:1.25rem;font-weight:800;margin-bottom:0.75rem;line-height:1.3">5 Smart Ways to Save Money as a Young Ugandan in 2026</h3>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.8;margin-bottom:1rem">Managing money well is one of the most important skills any young Ugandan can learn. Whether you earn from a job, business, or platforms like Workatap, how you manage what you earn determines your financial future.</p>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.8;margin-bottom:1rem"><strong style="color:var(--text)">1. Pay yourself first.</strong> Before spending any money you receive, set aside at least 10% into savings. Even UGX 5,000 saved per day becomes UGX 150,000 per month.</p>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.8;margin-bottom:1rem"><strong style="color:var(--text)">2. Use mobile money savings.</strong> Both MTN MoMo and Airtel Money offer savings wallet features. Use them to keep your Workatap earnings separate from your spending money.</p>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.8;margin-bottom:1rem"><strong style="color:var(--text)">3. Avoid unnecessary airtime spending.</strong> Data bundles are almost always cheaper than paying per MB. Buy weekly or monthly bundles to save more.</p>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.8;margin-bottom:1rem"><strong style="color:var(--text)">4. Track your earnings and spending.</strong> Keep a simple notebook or phone note of what comes in and what goes out each week.</p>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.8"><strong style="color:var(--text)">5. Grow your income streams.</strong> Do not rely on one source. Combine your regular income with Workatap earnings to build multiple streams of income.</p>
+        <div style="margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:0.75rem;color:var(--muted)">May 2026 · 5 min read</span>
+          <a href="./app.html" style="font-size:0.8rem;color:var(--gold);font-weight:600;text-decoration:none">Join Workatap →</a>
+        </div>
+      </article>
+
+      <!-- Article 4 -->
+      <article style="background:var(--bg3);border:1px solid var(--border);border-radius:16px;padding:1.5rem" id="article-referral-guide">
+        <div style="font-size:0.7rem;color:var(--gold);font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:0.75rem">REFERRAL GUIDE</div>
+        <h3 style="font-family:var(--font-head);font-size:1.25rem;font-weight:800;margin-bottom:0.75rem;line-height:1.3">How to Use the Workatap Referral System to Earn Faster</h3>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.8;margin-bottom:1rem">The Workatap referral system is one of the most powerful ways to earn points quickly without spending hours playing games. Every friend who registers using your unique referral code earns you bonus points instantly.</p>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.8;margin-bottom:1rem">To find your referral code, log in to Workatap and tap the Refer tab at the bottom. You will see your unique code and a Share on WhatsApp button. Tap it to send a pre-written invitation message to your contacts.</p>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.8;margin-bottom:1rem">The best places to share your referral code are WhatsApp groups, Facebook groups about making money online in Uganda, and your WhatsApp Status. Post proof of your earnings (a screenshot of your points balance or cashout) alongside your referral code for best results.</p>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.8">Users with 10 or more referrals appear on the Top Referrers leaderboard and earn weekly bonus points. The more you refer, the faster you reach the cashout threshold.</p>
+        <div style="margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:0.75rem;color:var(--muted)">May 2026 · 3 min read</span>
+          <a href="./app.html" style="font-size:0.8rem;color:var(--gold);font-weight:600;text-decoration:none">Get Your Code →</a>
+        </div>
+      </article>
+
+      <!-- Article 5 -->
+      <article style="background:var(--bg3);border:1px solid var(--border);border-radius:16px;padding:1.5rem" id="article-games-guide">
+        <div style="font-size:0.7rem;color:var(--green);font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:0.75rem">GAMES GUIDE</div>
+        <h3 style="font-family:var(--font-head);font-size:1.25rem;font-weight:800;margin-bottom:0.75rem;line-height:1.3">Top 5 Workatap Games That Earn You the Most Points</h3>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.8;margin-bottom:1rem">Workatap has over 15 games that reward you with real points every time you win. But some games give more points than others. Here are the top games to focus on if you want to earn fast.</p>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.8;margin-bottom:1rem"><strong style="color:var(--text)">1. Math Blitz (+12 pts).</strong> Solve quick maths questions in 20 seconds. Get 8 or more correct and win 12 points. This is the highest-paying skill game on the platform.</p>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.8;margin-bottom:1rem"><strong style="color:var(--text)">2. Flag Quiz (+12 pts).</strong> Identify countries from their flags. 8 questions, need 6 correct. Great for geography lovers and earns 12 points per win.</p>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.8;margin-bottom:1rem"><strong style="color:var(--text)">3. Uganda Trivia (+10 pts).</strong> Answer questions about Uganda. 25 unique questions that never repeat in one session. Win 10 points each round.</p>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.8;margin-bottom:1rem"><strong style="color:var(--text)">4. Spin and Win (up to 25 pts).</strong> Spin the wheel once per session and win between 5 and 25 points randomly. Always spin this first when you log in.</p>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.8"><strong style="color:var(--text)">5. Speed Tap (+8 pts).</strong> Tap as many targets as you can in 15 seconds. Need 20 taps to win. Fast and fun way to earn 8 points quickly.</p>
+        <div style="margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:0.75rem;color:var(--muted)">May 2026 · 4 min read</span>
+          <a href="./app.html" style="font-size:0.8rem;color:var(--gold);font-weight:600;text-decoration:none">Play Now →</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section id="about" style="padding:5rem 1.5rem;max-width:900px;margin:0 auto">
+  <div style="font-size:0.75rem;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:2px;margin-bottom:0.75rem">About Us</div>
+  <h2 style="font-family:var(--font-head);font-size:clamp(1.8rem,6vw,2.4rem);font-weight:800;letter-spacing:-1px;margin-bottom:1.5rem">About Workatap</h2>
+  <p style="color:var(--muted);line-height:1.9;margin-bottom:1rem">Workatap is a Ugandan play-to-earn platform that allows users to earn real money by playing games, completing tasks, watching ads, and referring friends. We were built specifically for Ugandans, with MTN MoMo and Airtel Money as our primary cashout methods.</p>
+  <p style="color:var(--muted);line-height:1.9;margin-bottom:1rem">Our mission is simple: give every Ugandan with a smartphone a way to earn extra income in their free time. Whether you are a student, a stay-at-home parent, or someone looking for extra income alongside your job, Workatap is for you.</p>
+  <p style="color:var(--muted);line-height:1.9;margin-bottom:2rem">We are based in Lira, Northern Uganda 🇺🇬 and are committed to providing a safe, transparent, and rewarding platform for all our users.</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.25rem;text-align:center">
+      <div style="font-family:var(--font-head);font-size:1.8rem;font-weight:800;color:var(--gold)">100%</div>
+      <div style="font-size:0.8rem;color:var(--muted);margin-top:4px">Free to join</div>
+    </div>
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.25rem;text-align:center">
+      <div style="font-family:var(--font-head);font-size:1.8rem;font-weight:800;color:var(--green)">24h</div>
+      <div style="font-size:0.8rem;color:var(--muted);margin-top:4px">Payout processing</div>
+    </div>
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.25rem;text-align:center">
+      <div style="font-family:var(--font-head);font-size:1.8rem;font-weight:800;color:var(--purple)">15+</div>
+      <div style="font-size:0.8rem;color:var(--muted);margin-top:4px">Games available</div>
+    </div>
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.25rem;text-align:center">
+      <div style="font-family:var(--font-head);font-size:1.8rem;font-weight:800;color:var(--gold)">🇺🇬</div>
+      <div style="font-size:0.8rem;color:var(--muted);margin-top:4px">Made in Uganda</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<div class="cta-banner" id="join">
+  <h2>Ready to start earning?</h2>
+  <p>Join thousands of Ugandans already earning on Workatap. It's free and takes 60 seconds.</p>
+  <a href="./app.html" style="display:inline-block; background:#f5c842; color:#0a0a0f; font-family:'DM Sans',sans-serif; font-weight:600; font-size:1rem; padding:0.9rem 2.2rem; border-radius:50px; text-decoration:none; position:relative; z-index:10; cursor:pointer;">Create Free Account →</a>
+</div>
+
+<!-- FOOTER -->
+<footer style="border-top:1px solid var(--border);padding:3rem 1.5rem 2rem;text-align:center">
+  <div style="max-width:900px;margin:0 auto">
+    <div style="font-family:var(--font-head);font-size:1.4rem;font-weight:800;color:var(--gold);margin-bottom:0.5rem">Workatap</div>
+    <p style="color:var(--muted);font-size:0.85rem;margin-bottom:1.5rem">Play · Earn · Cash Out via MoMo 🇺🇬</p>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1rem 2rem;margin-bottom:2rem">
+      <a href="#blog" style="color:var(--muted);text-decoration:none;font-size:0.85rem">Blog</a>
+      <a href="#about" style="color:var(--muted);text-decoration:none;font-size:0.85rem">About Us</a>
+      <a href="#how" style="color:var(--muted);text-decoration:none;font-size:0.85rem">How it Works</a>
+      <a href="./app.html" style="color:var(--muted);text-decoration:none;font-size:0.85rem">App</a>
+      <a href="mailto:support.workatap@gmail.com" style="color:var(--muted);text-decoration:none;font-size:0.85rem">Contact</a>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1rem 2rem;margin-bottom:2rem;padding-top:1rem;border-top:1px solid var(--border)">
+      <a href="#privacy" onclick="showPolicy('privacy')" style="color:var(--muted);text-decoration:none;font-size:0.8rem">Privacy Policy</a>
+      <a href="#terms" onclick="showPolicy('terms')" style="color:var(--muted);text-decoration:none;font-size:0.8rem">Terms & Conditions</a>
+      <a href="mailto:support.workatap@gmail.com" style="color:var(--muted);text-decoration:none;font-size:0.8rem">support.workatap@gmail.com</a>
+    </div>
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1rem;margin-bottom:1.5rem;font-size:0.82rem;color:var(--muted);text-align:left;line-height:1.7" id="privacy" style="display:none">
+      <strong style="color:var(--text)">Privacy Policy</strong><br>
+      Workatap collects your phone number, name, and email to operate the service. We use this data to manage your account and process MoMo payouts. We never sell your personal data. Data is stored securely on Google Firebase. You may request deletion at any time by emailing support.workatap@gmail.com. Last updated: May 2026.
+    </div>
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1rem;margin-bottom:1.5rem;font-size:0.82rem;color:var(--muted);text-align:left;line-height:1.7" id="terms">
+      <strong style="color:var(--text)">Terms & Conditions</strong><br>
+      By using Workatap you agree to: use the platform honestly without cheating or multiple accounts; that points have no cash value until redeemed through the official cashout system; that Workatap reserves the right to suspend accounts found violating these terms; that payouts are processed within 3-7 business days. Workatap is operated from Lira, Uganda. Contact: support.workatap@gmail.com. Last updated: May 2026.
+    </div>
+    <p style="color:var(--muted);font-size:0.78rem">© 2026 Workatap. All rights reserved. &nbsp;·&nbsp; Lira, Uganda 🇺🇬</p>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      item.classList.toggle('open');
+    });
+  });
+
+  function showPolicy(type){
+    const el = document.getElementById(type);
+    if(el) el.scrollIntoView({behavior:'smooth'});
+  }
+</script>
+</body>
+</html>
